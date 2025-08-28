@@ -10,14 +10,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 app.get('/', (req, res) => {
-  res.send('Hello Express  . <a href="Van">Van</a>')
+  res.send('Hello Express. <a href="Van">Van</a>')
 })
 
-// endpoints...middlewares...apis? 
-// send an html file
 
-app.get('/barry', (req, res) => {
-  // res.send('barry. <a href="/">home</a>')
+app.get('/Van', (req, res) => {
+  
 
   res.sendFile('Van.html'); 
 
@@ -28,3 +26,4 @@ app.get('/barry', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
 })
+
