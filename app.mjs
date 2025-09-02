@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('Hello Express from Render 😍😍😍. <a href="barry">barry</a>')
 })
 
-// endpoints...middlewares...apis? 
+// endpoints
 
 // send an html file
 app.get('/barry', (req, res) => {
@@ -28,27 +28,22 @@ app.get('/barry', (req, res) => {
 })
 
 app.get('/api/barry', (req, res) => {
-  // res.send('barry. <a href="/">home</a>')
+
   const myVar = 'Hello from server!';
   res.json({ myVar });
 })
 
 app.get('/api/query', (req, res) => {
 
-  //console.log("client request with query param:", req.query.name); 
   const name = req.query.name; 
   res.json({"message": `Hi, ${name}. How are you?`});
 
-  // receivedData.queries.push(req.query.name || 'Guest');
-  // const name = req.query.name || 'Guest';
-  // res.json({ message: `Hello, ${name} (from query param)` });
 });
 
 app.get('/api/url/:iaddasfsd', (req, res) => {
 
   console.log("client request with URL param:", req.params.iaddasfsd); 
-  // const name = req.query.name; 
-  // res.json({"message": `Hi, ${name}. How are you?`});
+ 
 
 });
 
@@ -56,9 +51,7 @@ app.get('/api/url/:iaddasfsd', (req, res) => {
 app.get('/api/body', (req, res) => {
 
   console.log("client request with POST body:", req.query); 
-  // const name = req.body.name; 
-  // res.json({"message": `Hi, ${name}. How are you?`});
-
+  
 });
 
 
