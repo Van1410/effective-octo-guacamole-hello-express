@@ -1,55 +1,87 @@
-// app.mjs (or app.js with "type": "module")
-import express from 'express';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> barry page</h1>
+    <a href="\"> home</a>
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const app = express()
-const PORT = process.env.PORT || 3000;
+  <div>
+    <h3>Query Parameter</h3>
+    <input id="queryName" type="text" placeholder="Enter name">
+    <button onclick="sendQuery()">Send Query</button>
+    <div id="queryResult"></div>
+  </div>
 
-app.use(express.static(join(__dirname, 'public')));
-app.use(express.json());
+  <div>
+    <h3>URL Parameter</h3>
+    <input id="urlId" type="text" placeholder="Enter id">
+    <button onclick="sendUrl()">Send URL Param</button>
+    <div id="urlResult"></div>
+  </div>
 
-app.get('/', (req, res) => {
-  res.send('Hello World from Render <a href="/barry">barry</a>')
-})
+  <div>
+    <h3>POST Body</h3>
+    <input id="bodyName" type="text" placeholder="Enter name">
+    <button onclick="sendBody()">Send POST Body</button>
+    <div id="bodyResult"></div>
+  </div>
 
-// endpoints ... middlewares ... apis?
-// send an html file
+  <form id="postForm" method="POST" action="/api/body">
+    <label>POST (body): </label>
+    <input id="postFormName" name="name" type="text" placeholder="Enter name">
+    <input id="postFormZipCode" name="zip" type="number" placeholder="zip">
+    <button type="submit">Submit POST</button>
+  </form>
+  <div id="postFormResult"></div>
 
-app.get('/barry', (req, res) => {
-  res.sendFile(join(__dirname, 'public', 'barry.html')) 
-})
+</body>
 
-app.get('/api/barry', (req, res) => {
-  // res.send('barry. <a href="/">home</a>')
-  const myVar = 'Hello from server!';
-  res.json({ myVar });
-})
+<script>
+    fetch('/api/barry')
+      .then(response => response.json())
+      .then(data => {
+        document.body.innerHTML += `<p>API says: ${data.myVar}</p>`;
+      })
+      .catch(err => {
+        document.body.innerHTML += `<p>Error fetching API</p>`;
+      });
 
-//app.listen(3000)
 
-app.get('/api/query', (req, res) => {
+    function sendQuery() {
+      const name = document.getElementById('queryName').value;
+      fetch(`/api/query?name=${encodeURIComponent(name)}`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('queryResult').textContent = data.message;
+        });
+    }
 
-  //console.log('Client request with query param:', req.query.name);
-  const name = req.query.name;
-  res.json({
-    "message": name
-  })
-})
+    function sendUrl() {
+      const id = document.getElementById('urlId').value;
+      fetch(`/api/url/${encodeURIComponent(id)}`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('urlResult').textContent = data.message;
+        });
+    }
 
-app.get('/api/url/:id', (req, res) => {
-  console.log('Client request with url param:', req.params.id);
-})
+    function sendBody() {
+      const name = document.getElementById('bodyName').value;
+        fetch('/api/body', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name })
+        })
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById('bodyResult').textContent = data.message;
+        });
+    }
 
-app.post('/api/body', (req, res) => {
-
-  console.log('Client request with POST name:', req.body.name);
-  console.log('Client request with POST zip:', req.body.zip);
-
-})
-
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`)
-})
+  </script>
+  
+</html>
