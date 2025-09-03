@@ -8,6 +8,7 @@ const __dirname = dirname(__filename);
 const app = express()
 const PORT = process.env.PORT || 3000;
 
+//give your self a note; app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(join(__dirname, 'public')));
 app.use(express.json());
 
@@ -50,6 +51,22 @@ app.post('/api/body', (req, res) => {
 
 })
 
+// have 2 get to slash endoints, prob need to nuke one. 
+// app.get('/', (req, res) => {
+//   res.send('Hello Express. <a href="Van">Van</a>')
+// })
+
+
+app.get('/Van', (req, res) => {
+  
+
+  res.sendFile('Van.html'); 
+
+})
+
+
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
 })
+
