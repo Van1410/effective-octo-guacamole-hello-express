@@ -2,7 +2,7 @@
 
 A big moment that took me a long time to figure out was uploading my Node.js project to GitHub and seeing if it works on localhost I followed these steps:
 
-## First Getting Started commands
+## Commands to do first 
 - `git pull` – pull code from GitHub repo
 - `cd` – into the working repo
 - `git checkout -b <branch-name>` – create a branch and switch to it
