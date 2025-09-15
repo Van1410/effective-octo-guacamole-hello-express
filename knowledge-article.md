@@ -25,5 +25,7 @@ This is useful so that no one person in a group has individuals only knowing how
 
 ## Reputable Sources
 *Agile Alliance -Agile 101* (https://agilealliance.org/agile101/)
+
 *Martin Fowler -Agile Handover* (https://martinfowler.com/bliki/AgileHandover.html)
+
 *geekforgeeks -Git Cheat Sheet* (https://www.geeksforgeeks.org/git/git-cheat-sheet/)
