@@ -2,10 +2,9 @@
 
 A big moment that took me a long time to figure out was uploading my Node.js project to GitHub and seeing if it works on localhost I followed these steps:
 
-## Commands to Follow When First Getting Started
-
-- `cd` – into the working repo
+## First Getting Started commands
 - `git pull` – pull code from GitHub repo
+- `cd` – into the working repo
 - `git checkout -b <branch-name>` – create a branch and switch to it
 ## Commands to change code or make changes
 - `git status` – check if the current branch is up to date with the remote repo
@@ -15,6 +14,7 @@ A big moment that took me a long time to figure out was uploading my Node.js pro
 - `git push --set-upstream origin <branch-name>` or `git push -u origin <branch-name>` – push branch to remote repo
 - `npm run start` – runs the script named `start` defined in `package.json`
 - `npm init` – creates the `package.json` file for your project
+- `git push --all` - pushes all branches to remote repository
 
 ## Agile handoff concept 
 Handoffs are important as they happen when a team or an individual will complete a certain task and will pass it on to another team or individual for further work. 
