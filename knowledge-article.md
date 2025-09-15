@@ -7,7 +7,7 @@ A big moment that took me a long time to figure out was uploading my Node.js pro
 - `cd` – into the working repo
 - `git pull` – pull code from GitHub repo
 - `git checkout -b <branch-name>` – create a branch and switch to it
-- Make changes to your code
+## Making changes to code
 - `git status` – check if the current branch is up to date with the remote repo
 - `git add .` – move changes from working directory to staging area (index)
 - `git commit -m "msg"` – commit changes to Git history
