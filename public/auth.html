@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoes Collection - Authentication</title>
+
+  <!-- Normalize.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/Styles/Styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="auth-container">
+      <!-- Brand Header -->
+      <div class="brand-header">
+        <h1>Shoes Collection</h1>
+        <p>Manage all the shoes.</p>
+      </div>
+
+      <!-- Auth Card -->
+      <div class="card auth-card">
+        <div class="card-header bg-transparent border-0 pt-4">
+          <ul class="nav nav-tabs card-header-tabs" id="authTabs" role="tablist">
+            <li class="nav-item flex-fill" role="presentation">
+              <button class="nav-link active w-100" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">
+                 Login
+              </button>
+            </li>
+            <li class="nav-item flex-fill" role="presentation">
+              <button class="nav-link w-100" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">
+                Register
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body p-4">
+          <div id="messages"></div>
+
+          <div class="tab-content" id="authTabsContent">
+            <!-- Login Tab -->
+            <div class="tab-pane fade show active" id="login" role="tabpanel">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="loginUsername" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="loginUsername" placeholder="Enter your username" required>
+                </div>
+                <div class="mb-4">
+                  <label for="loginPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login to Shoes Collection</button>
+              </form>
+              
+              <div class="mt-4 p-3" style="background: #f8f9fa; border-radius: 15px;">
+                <small class="text-muted">
+                  <strong>Default Login:</strong><br>
+                  Username: <code>van12</code><br>
+                  Password: <code>iscool1212</code>
+                </small>
+              </div>
+            </div>
+
+            <!-- Register Tab -->
+            <div class="tab-pane fade" id="register" role="tabpanel">
+              <form id="registerForm">
+                <div class="mb-3">
+                  <label for="registerUsername" class="form-label">Choose Username</label>
+                  <input type="text" class="form-control" id="registerUsername" placeholder="Create a username" required>
+                </div>
+                <div class="mb-4">
+                  <label for="registerPassword" class="form-label">Choose Password</label>
+                  <input type="password" class="form-control" id="registerPassword" placeholder="Create a secure password" required minlength="6">
+                  <div class="form-text">Password must be at least 6 characters long</div>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Create Account</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/Scripts/javascript.js"></script>
+</body>
+</html>
