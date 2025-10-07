@@ -31,7 +31,7 @@ body {
   font-size: 1.2rem;
   opacity: 0.9;
 }
-
+/* Had ai help with just the backdrop filter*/
 .auth-card {
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(10px);
