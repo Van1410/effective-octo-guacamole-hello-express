@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
   }
 });
 
-// Show message on auth page
+// Show message on auth page had to use claudeai to help
 function showMessage(message, type = 'info') {
   const messagesDiv = $('#messages');
   messagesDiv.html(`
@@ -20,13 +20,13 @@ function showMessage(message, type = 'info') {
   }, 5000);
 }
 
-// Register new user
+// Register new user 
 $('#registerForm').on('submit', async (e) => {
   e.preventDefault();
   
   const username = $('#registerUsername').val();
   const password = $('#registerPassword').val();
-
+//had to use ai to help with this part
   try {
     const response = await fetch('/api/auth/register', {
       method: 'POST',
@@ -63,7 +63,7 @@ $('#loginForm').on('submit', async (e) => {
     });
 
     const result = await response.json();
-    
+    //Needed help with ai on this part
     if (response.ok) {
       localStorage.setItem('jwtToken', result.token);
       localStorage.setItem('username', result.user.username);
@@ -155,7 +155,7 @@ function displayShoes(shoes) {
         </div>
       </li>
     `);
-
+//Needed help with ai on this part
     li.find('.delete-btn').click(async () => {
       try {
         const res = await fetch(`/api/body/${shoe._id}`, { 
@@ -218,7 +218,7 @@ async function addShoe() {
   }
 }
 
-// API greeting
+// API greeting 
 if (window.location.pathname.includes("Van.html")) {
   fetch('/api/Van', {
     headers: getAuthHeaders()
