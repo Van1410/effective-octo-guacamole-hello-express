@@ -1,0 +1,3 @@
+- The Mini App uses Node.js, Express.js, MongoDB, RestfulAPI also using normalize.css, Bootstrap 5, and jQuery/UI.
+- The Mini App also uses CRUD and is deployed on render.
+- Used for Shoes collection also prompted to authentication login.
