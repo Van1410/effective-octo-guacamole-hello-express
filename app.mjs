@@ -41,7 +41,7 @@ async function connectDB() {
       console.log("Seeded default shoes");
     }
 
-    // Admin user if empty had help with hashedPassword with ai
+    // Admin user if empty had help with hashedPassword 
     const usersCount = await db.collection('users').countDocuments();
     if (usersCount === 0) {
       const hashedPassword = await bcrypt.hash('admin123', 10);
@@ -58,7 +58,7 @@ async function connectDB() {
 }
 connectDB();
 
-//  Auth used a little bit of help from ai not much
+//  Auth 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
@@ -71,7 +71,7 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-//This is routing points had to use some ai for this
+//This is routing points 
 app.post('/api/auth/register', async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) return res.status(400).json({ error: 'Username & password required' });
@@ -106,7 +106,7 @@ app.get('/api/auth/me', authenticateToken, async (req, res) => {
   res.json({ user });
 });
 
-//This is more routing points that ai had to help with as well
+//This is more routing points 
 app.get('/api/shoes', authenticateToken, async (req, res) => {
   const shoes = await db.collection('shoes').find().toArray();
   res.json(shoes);
