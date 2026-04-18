@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
   }
 });
 
-// Show message on auth page had to use claudeai to help
+// Show message on auth page 
 function showMessage(message, type = 'info') {
   const messagesDiv = $('#messages');
   messagesDiv.html(`
@@ -155,7 +155,7 @@ function displayShoes(shoes) {
         </div>
       </li>
     `);
-//Needed help with ai on this part
+
     li.find('.delete-btn').click(async () => {
       try {
         const res = await fetch(`/api/body/${shoe._id}`, { 
